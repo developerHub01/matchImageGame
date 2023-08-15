@@ -7,6 +7,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="welcomepage">
+        <div class="welcomeWrapper">
+            <h2>02</h2>
+            <input type="range" name="rowNumber" id="rowNumber" min="2" max="6" value="2" step="2">
+            <button class="startBtn">Start</button>
+        </div>
+    </div>
+
+    <div class="mainPage">
+        <div class="wrapper">
+            <div class="gameWrapper">
+                <!-- <div class="imgWrapper">
+                    <img src="images/img02.jpg" alt="">
+                    <div class="number">02</div>
+                </div> -->
+            </div>
+            <button class="restartBtn">Restart</button>
+        </div>
+    </div>
+
+    <div class="popUpResult">
+        <div class="popUpWrapper">
+            <h2>You finished in <span class="totalMoveTaken"></span> Move</h2>
+            <button class="restartBtn">Restart</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
