@@ -96,7 +96,7 @@ document.addEventListener('click', (e) => {
     totalMove++;
 
     let setTimeOutOfCard;
-
+    // Main logic 
     if(e.target.parentNode.classList.contains('imgWrapper')){
       let currentCard = e.target;
       currentCard = currentCard.parentNode;
@@ -118,70 +118,26 @@ document.addEventListener('click', (e) => {
           setTimeOutOfCard = setTimeout(()=>{
             currentCard.classList.remove('active');
             tempPrevious.classList.remove('active');
-            // setTimeout(()=>{
-            //   previousCard = undefined; 
-            // }, 1);
           }, 500);
         }
 
       }else{
-        // imgWrappers.forEach((imgWrapper)=>{
-        //   imgWrapper.classList.remove('active');
-        // })
         clearTimeout(setTimeOutOfCard);
         currentCard.classList.add('active');
         previousCard = currentCard;
       }
 
     }
-// ==================================================================
 
-    // gameWrapper.childNodes.forEach((block) => {
-    //   let differentID = true, srcMatch = true;
-    //   if(previousCard != undefined){
-    //     // console.log(block.getAttribute('data-id'));
-    //     differentID = (block.getAttribute('data-id') !== previousCard.getAttribute('data-id'));
-    //     srcMatch = (block.querySelector('img').src === previousCard.querySelector('img').src && differentID);
-    //   }
-    //   if (block.contains(e.target)) {
-    //     if (
-    //       previousCard != undefined &&
-    //       srcMatch && differentID
-    //     ) {
-    //       previousCard.classList.add('finished');
-    //       block.classList.add('finished');
-    //     } else {
-    //       block.classList.add('active');
-    //       previousCard.classList.add('active');
-    //       setTimeout(()=>{
-    //         block.classList.remove('active');
-    //       }, 1000);
-    //       setTimeout(()=>{
-    //         previousCard.classList.remove('active');
-    //       }, 1000);
-    //       // console.log('hello');
-    //     }
-    //   } 
-    //   // else{
-    //   //   setTimeout(() => {
-    //   //     block.classList.remove('active');
-    //   //   }, 500);
-    //   // }
-
-    //   // previousCard.classList.add('active');
-    // });
-
-// ===========================================================================
-
-    // previousCard = e.target.parentNode;
-    // console.log(previousCard);
-
+    // Checking finised or not
     let finishedBlock = 0;
     gameWrapper.childNodes.forEach((element)=>{
       if(element.classList.contains('finished')){
          finishedBlock++;
       }
     });
+
+    // checking total move
     console.log(finishedBlock);
     if(finishedBlock == gameWrapper.childNodes.length){
       popUpResult.classList.add('add');
