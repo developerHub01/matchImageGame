@@ -20,6 +20,9 @@ button{
     cursor: pointer;
     border: none;
     font-size: 18px;
+    background: #27ae60;
+    color: #fff;
+    border-radius: 8px;
 }
 .welcomepage{
     width: 100%;
@@ -44,6 +47,9 @@ button{
     flex-direction: column;
     gap: 20px;
     text-align: center;
+}
+.welcomepage h2{
+    color: #27ae60;
 }
 
 .mainPage{
@@ -76,6 +82,7 @@ button{
     perspective: 3000px;
     border-radius: 10px;
     overflow: hidden;
+    user-select: none;
 }
 .gameWrapper .imgWrapper.finished{
     pointer-events: none;
@@ -90,7 +97,7 @@ button{
     transform: rotateY(180deg);
     backface-visibility: hidden;
     transform-style: preserve-3d;
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 .gameWrapper .imgWrapper.active img,
 .gameWrapper .imgWrapper.finished img{
@@ -110,7 +117,7 @@ button{
     background: #27ae60;
     color: #fff;
     transform: rotateY(0);
-    transition: 0.3s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
 .gameWrapper .imgWrapper.active .number,
 .gameWrapper .imgWrapper.finished .number{

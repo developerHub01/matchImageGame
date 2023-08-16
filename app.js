@@ -41,6 +41,9 @@ imgList.forEach((imgName, i) => {
   imgList[i] = 'images/' + imgName + '.jpg';
 });
 
+
+let previousCard;
+
 const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -58,6 +61,7 @@ startBtn.addEventListener('click', () => {
   totalMove = 0;
   imgDisplay(rowNumber);
   gameWrapper.style.gridTemplateColumns = `repeat(${rowNumber}, 1fr)`;
+  previousCard = undefined;
 });
 
 restartBtns.forEach((btn)=>{
@@ -89,7 +93,7 @@ const imgGenerate = (imgPath, i) => {
     </div>`;
 };
 
-let previousCard;
+
 
 document.addEventListener('click', (e) => {
   if(gameWrapper.contains(e.target)) {
@@ -118,25 +122,28 @@ document.addEventListener('click', (e) => {
           setTimeOutOfCard = setTimeout(()=>{
             currentCard.classList.remove('active');
             tempPrevious.classList.remove('active');
-          }, 500);
+          }, 800);
         }
 
       }else{
         clearTimeout(setTimeOutOfCard);
+        gameWrapper.childNodes.forEach((element)=>{
+          element.classList.remove('active');
+        })
         currentCard.classList.add('active');
         previousCard = currentCard;
       }
-
+      
     }
-
+    
     // Checking finised or not
     let finishedBlock = 0;
     gameWrapper.childNodes.forEach((element)=>{
       if(element.classList.contains('finished')){
-         finishedBlock++;
+        finishedBlock++;
       }
     });
-
+    
     // checking total move
     console.log(finishedBlock);
     if(finishedBlock == gameWrapper.childNodes.length){
