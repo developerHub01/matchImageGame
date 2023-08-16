@@ -79,7 +79,8 @@ button{
 }
 .gameWrapper .imgWrapper.finished{
     pointer-events: none;
-    opacity: 0.8;
+    opacity: 0.5;
+    border: 3px solid #27ae60;
 }
 .gameWrapper .imgWrapper img{
     width: 100%;
