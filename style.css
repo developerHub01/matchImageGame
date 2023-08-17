@@ -65,10 +65,17 @@ button{
 }
 .wrapper{
     width: 90%;
-    max-width: 500px;
+    max-width: 1170px;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
     gap: 20px;
+}
+.innerWrapper{
+    width: 100%;
+    max-width: 500px;
 }
 .gameWrapper{
     width: 100%;
@@ -136,7 +143,9 @@ button{
     transform: rotateY(180deg);
 }
 
-
+.timerWatch{
+    width: 100%;
+}
 /* Result PopUp */
 
 .popUpResult{
