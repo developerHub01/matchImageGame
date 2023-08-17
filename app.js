@@ -55,6 +55,13 @@ rowNumberRange.addEventListener('change', (e) => {
   displayRowNum.innerText = '0' + e.target.value;
 });
 
+const firstPreview = ()=>{
+  gameWrapper.classList.add('notEditable');
+  setTimeout(()=>{
+    gameWrapper.classList.remove('notEditable');
+  }, 1000);
+}
+
 startBtn.addEventListener('click', () => {
   rowNumber = Number(rowNumberRange.value);
   welcomePage.classList.add('hide');
@@ -62,6 +69,8 @@ startBtn.addEventListener('click', () => {
   imgDisplay(rowNumber);
   gameWrapper.style.gridTemplateColumns = `repeat(${rowNumber}, 1fr)`;
   previousCard = undefined;
+
+  firstPreview();
 });
 
 restartBtns.forEach((btn)=>{
@@ -92,7 +101,6 @@ const imgGenerate = (imgPath, i) => {
         <div class='number'>${i}</div>
     </div>`;
 };
-
 
 
 document.addEventListener('click', (e) => {

@@ -24,6 +24,8 @@ button{
     color: #fff;
     border-radius: 8px;
 }
+
+/* Welcome page styles */
 .welcomepage{
     width: 100%;
     height: 100vh;
@@ -52,6 +54,8 @@ button{
     color: #27ae60;
 }
 
+
+/* Main game style */
 .mainPage{
     width: 100%;
     min-height: 100vh;
@@ -69,10 +73,12 @@ button{
 .gameWrapper{
     width: 100%;
     aspect-ratio: 1;
-    overflow: hidden;
     display: grid;
-    gap: 5px;
+    gap: 8px;
     /* grid-template-columns: repeat(3, 1fr); */
+}
+.gameWrapper.notEditable{
+    pointer-events: none;
 }
 .gameWrapper .imgWrapper{
     width: 100%;
@@ -83,6 +89,7 @@ button{
     border-radius: 10px;
     overflow: hidden;
     user-select: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .gameWrapper .imgWrapper.finished{
     pointer-events: none;
@@ -100,8 +107,12 @@ button{
     transition: 0.2s ease-in-out;
 }
 .gameWrapper .imgWrapper.active img,
-.gameWrapper .imgWrapper.finished img{
+.gameWrapper .imgWrapper.finished img,
+.gameWrapper.notEditable .imgWrapper img{
     transform: rotateY(0);
+}
+.gameWrapper .imgWrapper.finished img{
+    filter: grayscale(100%);
 }
 .gameWrapper .imgWrapper .number{
     transform-style: preserve-3d;
@@ -120,9 +131,13 @@ button{
     transition: 0.2s ease-in-out;
 }
 .gameWrapper .imgWrapper.active .number,
-.gameWrapper .imgWrapper.finished .number{
+.gameWrapper .imgWrapper.finished .number,
+.gameWrapper.notEditable .imgWrapper .number{
     transform: rotateY(180deg);
 }
+
+
+/* Result PopUp */
 
 .popUpResult{
     position: fixed;
