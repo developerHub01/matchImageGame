@@ -1,188 +1,232 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
 }
-body{
-    width: 100%;
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    font-family: 'Poppins', sans-serif;
+:root {
+  --themeColor: #34a0f3;
+  --secondaryColor: #020112;
+  --whiteColor: #ffffff;
+  --themeFont: "Acme", sans-serif;
 }
-input, button{
-    font-family: 'Poppins', sans-serif;
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: var(--themeFont);
+  background: var(--secondaryColor);
 }
-button{
-    padding: 8px 15px;
-    cursor: pointer;
-    border: none;
-    font-size: 18px;
-    background: #27ae60;
-    color: #fff;
-    border-radius: 8px;
+input,
+button {
+  font-family: var(--themeFont);
+}
+button {
+  padding: 15px 30px;
+  cursor: pointer;
+  border: none;
+  font-size: 18px;
+  background: var(--themeColor);
+  color: var(--whiteColor);
+  border-radius: 8px;
 }
 
 /* Welcome page styles */
-.welcomepage{
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    display: grid;
-    place-items: center;
-    transform: translateX(0);
-    background: #ddd;
-    transition: 0.3s ease-in-out;
+.welcomepage {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  transform: translateX(0);
+  background: var(--secondaryColor);
+  transition: 0.3s ease-in-out;
 }
-.welcomepage.hide{
-    transform: translateX(-100%);
+.welcomepage.hide {
+  transform: translateX(-100%);
 }
-.welcomeWrapper{
-    width: 90%;
-    max-width: 320px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
+.welcomeWrapper {
+  width: 90%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
 }
-.welcomepage h2{
-    color: #27ae60;
+.welcomepage h2 {
+  color: var(--themeColor);
+  font-size: 40px;
 }
-
 
 /* Main game style */
-.mainPage{
-    width: 100%;
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    padding: 30px 0;
+.mainPage {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 30px 0;
 }
-.wrapper{
-    width: 90%;
-    max-width: 1170px;
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    gap: 20px;
+.wrapper {
+  width: 90%;
+  max-width: 1170px;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  gap: 40px 20px;
 }
-.innerWrapper{
-    width: 100%;
-    max-width: 500px;
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
 }
-.gameWrapper{
-    width: 100%;
-    aspect-ratio: 1;
-    display: grid;
-    gap: 8px;
-    /* grid-template-columns: repeat(3, 1fr); */
+.innerWrapper {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.gameWrapper.notEditable{
-    pointer-events: none;
+.gameWrapper {
+  width: 100%;
+  aspect-ratio: 1;
+  display: grid;
+  gap: 8px;
+  /* grid-template-columns: repeat(3, 1fr); */
 }
-.gameWrapper .imgWrapper{
-    width: 100%;
-    aspect-ratio: 1;
-    position: relative;
-    cursor: pointer;
-    perspective: 3000px;
-    border-radius: 10px;
-    overflow: hidden;
-    user-select: none;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.gameWrapper.notEditable {
+  cursor: not-allowed;
 }
-.gameWrapper .imgWrapper.finished{
-    pointer-events: none;
-    opacity: 0.5;
-    border: 3px solid #27ae60;
+.gameWrapper.notEditable .imgWrapper {
+  pointer-events: none;
 }
-.gameWrapper .imgWrapper img{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    aspect-ratio: 1;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: 0.2s ease-in-out;
+.gameWrapper .imgWrapper {
+  width: 100%;
+  aspect-ratio: 1;
+  position: relative;
+  cursor: pointer;
+  perspective: 3000px;
+  border-radius: 10px;
+  overflow: hidden;
+  user-select: none;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.gameWrapper .imgWrapper.finished {
+  pointer-events: none;
+  opacity: 0.5;
+  border: 3px solid var(--themeColor);
+}
+.gameWrapper .imgWrapper img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  aspect-ratio: 1;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: 0.2s ease-in-out;
 }
 .gameWrapper .imgWrapper.active img,
 .gameWrapper .imgWrapper.finished img,
-.gameWrapper.notEditable .imgWrapper img{
-    transform: rotateY(0);
+.gameWrapper.notEditable .imgWrapper img {
+  transform: rotateY(0);
 }
-.gameWrapper .imgWrapper.finished img{
-    filter: grayscale(100%);
+.gameWrapper .imgWrapper.finished img {
+  filter: grayscale(100%);
 }
-.gameWrapper .imgWrapper .number{
-    transform-style: preserve-3d;
-    font-size: 40px;
-    font-weight: 800;
-    text-align: center;
-    display: grid;
-    place-items: center;
-    width: 100%;
-    backface-visibility: hidden;
-    height: 100%;
-    aspect-ratio: 1;
-    background: #27ae60;
-    color: #fff;
-    transform: rotateY(0);
-    transition: 0.2s ease-in-out;
+.gameWrapper .imgWrapper .number {
+  transform-style: preserve-3d;
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  backface-visibility: hidden;
+  height: 100%;
+  aspect-ratio: 1;
+  background: var(--themeColor);
+  color: var(--whiteColor);
+  transform: rotateY(0);
+  transition: 0.2s ease-in-out;
+}
+@media (max-width: 768px) {
+  .gameWrapper .imgWrapper .number {
+    font-size: 25px;
+  }
 }
 .gameWrapper .imgWrapper.active .number,
 .gameWrapper .imgWrapper.finished .number,
-.gameWrapper.notEditable .imgWrapper .number{
-    transform: rotateY(180deg);
+.gameWrapper.notEditable .imgWrapper .number {
+  transform: rotateY(180deg);
 }
 
-.timerWatch{
-    width: 100%;
+.timerWatch {
+  width: 250px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  padding: 30px 15px;
+  user-select: none;
+  background: var(--themeColor);
+  color: var(--whiteColor);
+}
+.timerWatch h3 {
+  font-size: 40px;
+  padding-bottom: 15px;
+}
+.timerWatch h4 {
+  font-size: 30px;
 }
 /* Result PopUp */
 
-.popUpResult{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999999;
-    display: grid;
-    place-items: center;
-    background: rgba(0, 0, 0, 0.8);
-    pointer-events: none;
-    opacity: 0;
+.popUpResult {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  opacity: 0;
 }
-.popUpResult.add{
-    opacity: 1;
-    pointer-events: fill;
+.popUpResult.add {
+  opacity: 1;
+  pointer-events: fill;
 }
-.popUpWrapper{
-    width: 90%;
-    max-width: 300px;
-    padding: 30px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: scale(0);
+.popUpWrapper {
+  width: 90%;
+  max-width: 300px;
+  padding: 30px;
+  background: var(--whiteColor);
+  border-radius: 10px;
+  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-.popUpWrapper h2{
-    padding-bottom: 20px;
+.popUpWrapper h2 {
+  font-size: 35px;
 }
-.popUpResult.add .popUpWrapper{
-    transform: scale(1);
+.popUpWrapper h3 {
+  font-size: 25px;
 }
-.popUpWrapper span{
-    color: #27ae60;
+.popUpResult.add .popUpWrapper {
+  transform: scale(1);
+}
+.popUpWrapper span {
+  color: var(--themeColor);
 }
